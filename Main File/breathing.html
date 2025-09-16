@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise Game</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div id="game">
+        <div class="circle" id="circle1"></div>
+        <div class="circle" id="circle2"></div>
+        <div id="breathInstruction">Get Ready...</div>
+        <div id="timer">Timer: <span id="timerDisplay">0</span> seconds</div>
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+        <div>
+            <label for="inhaleDuration">Inhale Duration (seconds): </label>
+            <input type="number" id="inhaleDuration" value="4" min="1">
+        </div>
+        <div>
+            <label for="holdDuration">Hold Duration (seconds): </label>
+            <input type="number" id="holdDuration" value="4" min="1">
+        </div>
+        <div>
+            <label for="exhaleDuration">Exhale Duration (seconds): </label>
+            <input type="number" id="exhaleDuration" value="4" min="1">
+        </div>
+        <!-- Audio Instructions -->
+        <audio id="audioInstructions" src="audio/breathe_in.mp3" preload="auto"></audio>
+        <audio id="audioHold" src="audio/hold.mp3" preload="auto"></audio>
+        <audio id="audioExhale" src="audio/breathe_out.mp3" preload="auto"></audio>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harvard Step Test</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #d32f2f, #000, #fff);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding-top: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 80%;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .video-container, .table-container {
+      width: 48%;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .steps, .bpm-section {
+      width: 80%;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #heart {
+      font-size: 80px;
+      animation: beat 1s infinite;
+      margin: 20px 0;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Harvard Step Test</h1>
+
+  <div class="container">
+    <div class="video-container">
+      <video id="exerciseVideo" controls>
+        <source src="harvard step video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="table-container">
+      <h2>Heart Rate Readings</h2>
+      <table>
+        <tr><th>Rating</th><th>Heart Rate (bpm)</th></tr>
+        <tr><td>Excellent</td><td>>90</td></tr>
+        <tr><td>Good</td><td>80-89</td></tr>
+        <tr><td>High Average</td><td>65-79</td></tr>
+        <tr><td>Low Average</td><td>55-64</td></tr>
+        <tr><td>Poor</td><td><55</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="steps">
+    <h2>How It Works</h2>
+    <p>1. Step up and down from a platform for 5 minutes at a steady pace.</p>
+    <p>2. After the exercise, measure your heart rate at 1, 2, 3, 4, 5, and 6 minutes.</p>
+    <p>3. Compare your results with the table to assess cardiovascular fitness.</p>
+  </div>
+
+  <!-- LIVE BPM SECTION -->
+  <div class="bpm-section">
+    <h2>Live Heart Rate Monitor</h2>
+    <div id="heart">❤️</div>
+    <p>Current BPM: <span id="bpm">--</span></p>
+    <p>Average BPM (Last 10 readings): <span id="avg">--</span></p>
+  </div>
+
+  <script>
+    const bpmDisplay = document.getElementById("bpm");
+    const avgDisplay = document.getElementById("avg");
+    const heart = document.getElementById("heart");
+
+    let last10 = [];
+
+    async function fetchBPM() {
+      try {
+        const res = await fetch("https://blynk.cloud/external/api/get?token=SKXTMRMooRLhtLOB1bL6g8Y-Y1CHZZmP&v1");
+        const bpm = parseInt(await res.text());
+
+        if (!isNaN(bpm) && bpm > 0) {
+          bpmDisplay.textContent = bpm;
+
+          last10.push(bpm);
+          if (last10.length > 10) last10.shift();
+
+          const avg = Math.round(last10.reduce((a, b) => a + b, 0) / last10.length);
+          avgDisplay.textContent = avg;
+
+          const beatSpeed = 60 / bpm;
+          heart.style.animationDuration = `${beatSpeed}s`;
+        } else {
+          bpmDisplay.textContent = "--";
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        bpmDisplay.textContent = "--";
+      }
+    }
+
+    setInterval(fetchBPM, 2000);
+    fetchBPM();
+  </script>
+
+</body>
+</html>

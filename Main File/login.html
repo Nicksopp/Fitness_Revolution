@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness & Sports - Login</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('video-banner.jpg'); 
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border: 2px solid #ff8c00;
+        }
+
+        .login-button {
+            background: #ff8c00;
+            border: none;
+            border-radius: 5px;
+            padding: 12px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .login-button:hover {
+            background: #ff6500;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+        }
+
+        .signup-link a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-box">
+            <h1>Login</h1>
+            
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            
+            <!-- New Contact Number Section -->
+            <div class="input-group">
+                <label for="contact">Contact Number</label>
+                <input type="tel" id="contact" placeholder="Enter your contact number">
+            </div>
+
+            <!-- New Date of Birth Section -->
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+            </div>
+
+            <!-- New Sex Section -->
+            <div class="input-group">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+           
+
+            <button type="submit" class="login-button"><a href="index2.html" style="color: #fff; text-decoration: none;">Login</a></button>
+            <p class="signup-link">Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+    </div>
+</body>
+</html>
+

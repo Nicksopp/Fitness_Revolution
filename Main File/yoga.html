@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicep Curl Tracker</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Yoga Detection Tracker</h1>
+        <video id="video" width="640" height="480" autoplay></video>
+        <canvas id="output" width="640" height="480"></canvas>
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <div id="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+    <script src="script3.js"></script>
+</body>
+</html>

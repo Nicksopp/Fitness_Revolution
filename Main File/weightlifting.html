@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Pose Detection</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <video id="videoElement" width="640" height="480" autoplay></video>
+    <canvas id="outputCanvas" width="640" height="480"></canvas>
+    <div id="counterBox">
+        <div>REPS: <span id="counter">0</span></div>
+        <div>STAGE: <span id="stage">-</span></div>
+    </div>
+    
+    <!-- Include TensorFlow.js and PoseNet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet"></script>
+    <!-- Link to External JavaScript -->
+    <script src="app1.js"></script>
+</body>
+</html>

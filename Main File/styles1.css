@@ -1,0 +1,36 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    font-family: Arial, sans-serif;
+    
+    /* Add Background Image */
+    background-image: url('lets\ detect\ your\ exercise\ \(2\).jpg'); /* Update the path as needed */
+    background-size: middle; /* Scales the image to cover the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+#videoElement, #outputCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#counterBox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(245, 117, 16, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+#counterBox div {
+    margin-bottom: 5px;
+}
